@@ -1,7 +1,7 @@
 const { readFromFile, readAndAppend } = require('../helpers/fsutils');
 const routers = require('express').Router();
 
-
+// get route for notes
 routers.get('/notes', (req, res) => {
   readFromFile('./db/db.json').then((data) =>
     res.json(JSON.parse(data))
@@ -17,7 +17,7 @@ routers.post('/notes', (req, res) => {
   const payload = {
     title,
     text ,
-    
+    note_id: Date.now()
   };
 
   
